@@ -41,14 +41,12 @@ class selection_sort_app:
         if not file_path:
             return
         
-        try:
-            with open(file_path, newline="") as f:
-                reader = csv.reader(f)
-                self.numbers = [int(num.strip()) for row in reader for num in row]
-            self.result_label.config(text=f"Loaded Numbers: {self.numbers}")
-            self.sort_button.config(state=tk.NORMAL)
-        except Exception as e:
-            messagebox.showerror("File Error", f"Error reading file: {e}")
+        with open(file_path, newline="") as f:
+            reader = csv.reader(f)
+            self.numbers = [int(num.strip()) for row in reader for num in row]
+        self.result_label.config(text=f"Loaded Numbers: {self.numbers}")
+        self.sort_button.config(state=tk.NORMAL)
+       
 
     def perform_sort(self):
         if not self.numbers:
