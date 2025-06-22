@@ -54,6 +54,8 @@ class selection_sort_app:
         if not self.numbers:
             messagebox.showerror("Error", "No numbers loaded from CSV")
             return
+
+    print("editing")
         
         sorted_list = self.selection_sort(self.numbers)
         self.result_label.config(text=f"Sorted List: {sorted_list}")
